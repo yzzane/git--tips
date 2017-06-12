@@ -1,0 +1,250 @@
+<html>
+  <head>
+	  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>i5ting_ztree_toc:gulp</title>
+		<link href="toc/style/github-bf51422f4bb36427d391e4b75a1daa083c2d840e.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/style/github2-d731afd4f624c99a4b19ad69f3083cd6d02b81d5.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/css/zTreeStyle/zTreeStyle.css" media="all" rel="stylesheet" type="text/css"/>
+	  <style>
+		pre {
+		    counter-reset: line-numbering;
+		    border: solid 1px #d9d9d9;
+		    border-radius: 0;
+		    background: #fff;
+		    padding: 0;
+		    line-height: 23px;
+		    margin-bottom: 30px;
+		    white-space: pre;
+		    overflow-x: auto;
+		    word-break: inherit;
+		    word-wrap: inherit;
+		}
+
+		pre a::before {
+		  content: counter(line-numbering);
+		  counter-increment: line-numbering;
+		  padding-right: 1em; /* space after numbers */
+		  width: 25px;
+		  text-align: right;
+		  opacity: 0.7;
+		  display: inline-block;
+		  color: #aaa;
+		  background: #eee;
+		  margin-right: 16px;
+		  padding: 2px 10px;
+		  font-size: 13px;
+		  -webkit-touch-callout: none;
+		  -webkit-user-select: none;
+		  -khtml-user-select: none;
+		  -moz-user-select: none;
+		  -ms-user-select: none;
+		  user-select: none;
+		}
+
+		pre a:first-of-type::before {
+		  padding-top: 10px;
+		}
+
+		pre a:last-of-type::before {
+		  padding-bottom: 10px;
+		}
+
+		pre a:only-of-type::before {
+		  padding: 10px;
+		}
+
+		.highlight { background-color: #ffffcc } /* RIGHT */
+		</style>
+  </head>
+  <body>
+	  <div>
+				<div style='width:25%;'>
+						<ul id="tree" class="ztree" style='width:100%'>
+
+						</ul>
+				</div>
+        <div id='readme' style='width:70%;margin-left:20%;'>
+          	<article class='markdown-body'>
+            	<h1 id="-">流行框架 -工具</h1>
+<h2 id="npm-node-">npm -Node的包管理工具</h2>
+<ul>
+<li>node package manager</li>
+<li><a href="https://npmjs.com">npm官网</a></li>
+<li><a href="http://npm.taobao.org/">淘宝镜像</a></li>
+<li><a href="https://github.com/cnpm/cnpm">cnpm</a></li>
+</ul>
+<h2 id="-node">安装 node</h2>
+<ul>
+<li>下载<code>node</code>的安装包，直接安装</li>
+</ul>
+<h3 id="-">验证是否安装成功</h3>
+<ul>
+<li>1 使用<code>win + r</code>键，打开<code>运行窗口</code></li>
+<li>2 输入<code>cmd</code>，敲回车，进入到命令行工具</li>
+<li>3 输入<code>node -v</code>，检测node是否安装成功</li>
+<li>4 输入<code>npm -v</code>，检测 npm</li>
+</ul>
+<h3 id="-">使用淘宝镜像</h3>
+<pre><code>npm config set registry https://registry.npm.taobao.org --global
+npm config set disturl https://npm.taobao.org/dist --global
+</code></pre><h2 id="-npm">使用npm</h2>
+<ul>
+<li>初始化npm配置文件：<code>npm init</code></li>
+<li>会生成一个名为：<code>package.json</code> 的文件</li>
+</ul>
+<h3 id="-npm-">使用npm下载包</h3>
+<ul>
+<li>命令：<code>npm install [名称] --save</code></li>
+<li>参数<code>--save</code> 会修改 <code>package.json</code>，添加&quot;dependencies&quot;依赖项</li>
+<li>注意：会在当前目录中添加一个名为<code>node_modules</code>的文件夹<ul>
+<li>文件夹中存放了，所有下载的包文件</li>
+</ul>
+</li>
+<li>下载指定版本号的包：<code>npm install [包名称]@版本号 --save</code></li>
+</ul>
+<h3 id="package-json">package.json</h3>
+<ul>
+<li>作用：npm可以根据该文件，配合<code>npm install --production</code>命令，下载配置中的依赖项</li>
+<li>优势：不用每次都拷贝依赖项，只需要使用package.json即可</li>
+</ul>
+<h3 id="-">移除包</h3>
+<ul>
+<li>命令：<code>npm remove [名称] --save</code></li>
+<li>作用：删除包文件，并修改<code>package.json</code></li>
+</ul>
+<h2 id="gulp-">Gulp 前端自动化构建工具</h2>
+<ul>
+<li><a href="http://www.gulpjs.com">官网</a></li>
+<li><a href="http://www.gulpjs.com.cn">中文网</a></li>
+<li><a href="http://tool.oschina.net">在线压缩</a></li>
+</ul>
+<h3 id="-">概述</h3>
+<blockquote>
+<p>Gulp：用自动化构建工具增强你的工作流程！</p>
+</blockquote>
+<ul>
+<li>1 易于使用</li>
+<li>2 高效，利用node.js强大的流（文件流），快速完成构建</li>
+<li>3 构建工作就像一系列 流管道（水流经过管道）</li>
+</ul>
+<h3 id="-">应用场景</h3>
+<ul>
+<li>项目发布上线之前对项目进行构建</li>
+<li>自动完成一系列重复的操作</li>
+</ul>
+<pre><code>js、css、html文件的压缩、混淆、合并、监视文件变化、同步刷新浏览器 等等
+Less ==&gt; CSS 或者 Sass ==&gt; CSS
+</code></pre><h3 id="-gulp-">安装Gulp命令行</h3>
+<ul>
+<li>1 全局安装 gulp<ul>
+<li><code>npm install --global gulp</code></li>
+</ul>
+</li>
+<li>2 作为项目的开发依赖（devDependencies）安装：<ul>
+<li><code>npm install --save-dev gulp</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="-">其他构建工具</h3>
+<ul>
+<li>Grunt 、webpack</li>
+</ul>
+<h3 id="-">核心方法</h3>
+<ul>
+<li>task() ：gulp中是以任务为单位来实现功能</li>
+<li>src()  ：传入路径参数，获取到要处理的指定文件</li>
+<li>dest() ：指定处理后的文件输出路径</li>
+<li>watch()：监视文件的变化，做出相应的处理</li>
+</ul>
+<h3 id="-">写任务的步骤</h3>
+<ul>
+<li>注意：任务写在 <code>gulpfile.js</code> 文件中，这个文件需要我们自己创建</li>
+</ul>
+<pre><code class="lang-js">// 1 得到 gulp 模块
+var gulp = require(&quot;gulp&quot;);
+
+// 2 新建任务
+gulp.task(&quot;js&quot;, function() {
+    // 使用 src 方法，根据路径 &quot;./app.js&quot; 找到app.js文件
+    gulp.src(&quot;./app.js&quot;)
+        // 使用 dest 方法，执行输出路径
+        .pipe(gulp.dest(&quot;./dist&quot;));
+});
+
+// 3 执行： `gulp js` 命令
+</code></pre>
+<h3 id="-gulp-">使用gulp的插件</h3>
+<ul>
+<li><code>gulp-less</code>：将less转化为css</li>
+<li><code>gulp-uglify</code>：压缩和混淆js代码</li>
+<li><code>gulp-concat</code>：合并js/css文件</li>
+<li><code>gulp-cssnano</code>：压缩css代码</li>
+<li><code>gulp-htmlmin</code>：压缩html代码<ul>
+<li><a href="https://github.com/kangax/html-minifier">htmlmin文档</a></li>
+</ul>
+</li>
+<li><p><code>browser-sync</code>：同步刷新浏览器</p>
+</li>
+<li><p>以上插件都使用：<code>npm install gulp-[名称] --save-dev</code> 安装</p>
+</li>
+<li>网络不好的情况下，最好是一个个安装，否则，很可能会下载失败</li>
+</ul>
+<pre><code>npm install --save-dev gulp gulp-uglify gulp-concat gulp-cssnano gulp-htmlmin gulp-less
+npm install --save-dev browser-sync
+</code></pre><h2 id="-">参考文章</h2>
+<ul>
+<li><a href="http://www.gulpjs.com.cn">Gulp中文网 -文档</a></li>
+<li><a href="https://markpop.github.io/2014/09/17/Gulp%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/">Gulp 入门</a></li>
+<li><a href="http://www.browsersync.cn/docs/gulp/">Gulp+BrowserSync</a></li>
+</ul>
+<h2 id="-browser-sync">单独使用 browser-sync</h2>
+<ul>
+<li>作用：更改代码之后自动刷新浏览器</li>
+</ul>
+<h3 id="-">安装</h3>
+<ul>
+<li>命令：<code>npm install browser-sync -g</code> 全局安装</li>
+</ul>
+<h3 id="-">监视</h3>
+<ul>
+<li>命令：<code>browser-sync start --server --files &quot;index.html&quot;</code></li>
+<li>监视单个文件：<code>--files &quot;index.html&quot;</code></li>
+<li>监视多个文件：<code>--files &quot;index.html, test.css&quot;</code></li>
+<li>监视目录文件：<code>--files &quot;./css/*.css&quot;</code></li>
+<li>监视所有文件：<code>--files &quot;*.*&quot;</code></li>
+</ul>
+<h3 id="-">优势</h3>
+<ul>
+<li>动态重新加载样式文件，而不是刷新页面，避免繁琐的操作</li>
+<li>前提：样式放到一个单独的css文件中</li>
+</ul>
+<h3 id="-">其他应用</h3>
+<ul>
+<li>管理地址：<code>UI: http://localhost:3001</code></li>
+<li>多浏览器同步测试</li>
+</ul>
+<pre><code>1 同步事件触发
+2 同步浏览器滚动
+3 同步文本框内容
+</code></pre>
+          	</article>
+        </div>
+		</div>
+  </body>
+</html>
+<script type="text/javascript" src="toc/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="toc/js/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript" src="toc/js/ztree_toc.js"></script>
+<script type="text/javascript" src="toc_conf.js"></script>
+
+<SCRIPT type="text/javascript" >
+<!--
+$(document).ready(function(){
+    var css_conf = eval(markdown_panel_style);
+    $('#readme').css(css_conf)
+    
+    var conf = eval(jquery_ztree_toc_opts);
+		$('#tree').ztree_toc(conf);
+});
+//-->
+</SCRIPT>

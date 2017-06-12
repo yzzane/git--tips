@@ -1,0 +1,434 @@
+<html>
+  <head>
+	  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>i5ting_ztree_toc:git</title>
+		<link href="toc/style/github-bf51422f4bb36427d391e4b75a1daa083c2d840e.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/style/github2-d731afd4f624c99a4b19ad69f3083cd6d02b81d5.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/css/zTreeStyle/zTreeStyle.css" media="all" rel="stylesheet" type="text/css"/>
+	  <style>
+		pre {
+		    counter-reset: line-numbering;
+		    border: solid 1px #d9d9d9;
+		    border-radius: 0;
+		    background: #fff;
+		    padding: 0;
+		    line-height: 23px;
+		    margin-bottom: 30px;
+		    white-space: pre;
+		    overflow-x: auto;
+		    word-break: inherit;
+		    word-wrap: inherit;
+		}
+
+		pre a::before {
+		  content: counter(line-numbering);
+		  counter-increment: line-numbering;
+		  padding-right: 1em; /* space after numbers */
+		  width: 25px;
+		  text-align: right;
+		  opacity: 0.7;
+		  display: inline-block;
+		  color: #aaa;
+		  background: #eee;
+		  margin-right: 16px;
+		  padding: 2px 10px;
+		  font-size: 13px;
+		  -webkit-touch-callout: none;
+		  -webkit-user-select: none;
+		  -khtml-user-select: none;
+		  -moz-user-select: none;
+		  -ms-user-select: none;
+		  user-select: none;
+		}
+
+		pre a:first-of-type::before {
+		  padding-top: 10px;
+		}
+
+		pre a:last-of-type::before {
+		  padding-bottom: 10px;
+		}
+
+		pre a:only-of-type::before {
+		  padding: 10px;
+		}
+
+		.highlight { background-color: #ffffcc } /* RIGHT */
+		</style>
+  </head>
+  <body>
+	  <div>
+				<div style='width:25%;'>
+						<ul id="tree" class="ztree" style='width:100%'>
+
+						</ul>
+				</div>
+        <div id='readme' style='width:70%;margin-left:20%;'>
+          	<article class='markdown-body'>
+            	<h1 id="git-">Git -版本控制工具</h1>
+<h2 id="git-">Git简介</h2>
+<ul>
+<li><a href="https://git-scm.com">官网</a></li>
+<li><a href="https://git-scm.com/book/zh/v2">文档</a></li>
+</ul>
+<h3 id="-git">什么是Git</h3>
+<ul>
+<li>Git是一款免费、开源的分布式 <code>版本控制软件</code> VCS - Version Control System</li>
+<li>由 Linus Torvalds（林纳斯·托瓦兹）于2005年发布。</li>
+<li>最初目的是为更好地管理 Linux内核 开发而设计</li>
+<li>Git使用方式：1 命令 、2 图形化界面（GUI）</li>
+</ul>
+<h3 id="git-">Git的优势</h3>
+<ul>
+<li>Git的速度快，性能好</li>
+<li>有效、高速的处理从很小到非常大的项目版本管理</li>
+<li>采用分布式存储方式，不需要服务器就可以运行</li>
+<li>使得源代码的发布和交流极其方便</li>
+</ul>
+<h2 id="-">两种版本控制工具</h2>
+<ul>
+<li>集中式版本控制工具: SVN</li>
+<li>分布式版本控制工具: Git</li>
+</ul>
+<h3 id="-">版本控制</h3>
+<pre><code>版本控制是一种记录一个或若干文件内容变化，以便将来查阅特
+定版本修订情况的系统。
+</code></pre><h3 id="-">集中式和分布式的区别</h3>
+<ul>
+<li>1 集中式依赖于远程服务器，在没有网络的情况下无法提交</li>
+<li>2 所有开发者都共享一个远程服务器</li>
+<li>3 分布式直接进行本地存储，不依赖与远程服务器（可有可无）</li>
+<li>4 没有网络的情况下，也可以工作，有网了，将本地修改内容全部提交到远程服务器</li>
+</ul>
+<h2 id="git-">Git的安装</h2>
+<h2 id="git-">Git的基本使用</h2>
+<ul>
+<li>查看帮助：<code>git --help</code></li>
+<li>查看命令帮助：<code>git add -h</code></li>
+<li>查看详细帮助：<code>git add --help</code></li>
+</ul>
+<h3 id="-">基础配置</h3>
+<ul>
+<li>需要配置：user.name 和 user.email</li>
+<li>作用：每次 Git 提交时都会引用这两条信息，记录是谁提交了更新</li>
+<li>配置用户名：   <code>git config --global user.name &quot;用户名&quot;</code></li>
+<li>配置邮箱：     <code>git config --global user.email &quot;邮箱地址&quot;</code></li>
+<li>查看配置信息： <code>git config --list</code></li>
+<li>使用 <code>--global</code> 实现全局配置，任何位置使用git都有效</li>
+</ul>
+<h3 id="-">初始化仓库</h3>
+<ul>
+<li>命令：<code>git init</code></li>
+<li>作用：使用Git管理项目的初始化操作，会创建一个名为<code>.git</code>的隐藏目录</li>
+<li>一般是在项目的根目录执行这个命令</li>
+<li><code>.git</code>目录:</li>
+</ul>
+<pre><code>它是 Git 用来保存元数据和对象数据库的地方。
+该目录非常重要，每次克隆镜像仓库的时候，实际拷贝的就是这个目录里面的数据。
+</code></pre><h3 id="-">跟踪文件</h3>
+<ul>
+<li>作用：将文件由 工作区 添加到 暂存区（Index），暂存文件</li>
+<li>命令：<code>git add 文件路径</code><ul>
+<li>例如： <code>git add ./README.md</code></li>
+</ul>
+</li>
+<li><code>git add --all</code> 或者 <code>git add -A</code>（简写） 添加所有文件</li>
+<li><code>git add a.txt b.txt</code> 同时添加两个文件</li>
+<li><code>git add *.js</code> 添加当前目录下的所有js文件</li>
+</ul>
+<h3 id="-">提交更新</h3>
+<ul>
+<li>作用：将文件由 暂存区 添加到 仓库（HEAD）</li>
+<li><code>git commit -m &quot;提交说明&quot;</code></li>
+</ul>
+<h3 id="-">查看文件状态</h3>
+<ul>
+<li>命令：<code>git status</code></li>
+<li>命令：<code>git stauts -s</code> 简化日志输出格式</li>
+</ul>
+<h3 id="-">提交代码</h3>
+<ul>
+<li>三个存储分区的说明：</li>
+</ul>
+<pre><code>1 工作区：开发者的工作目录
+2 暂存区：临时存放工作目录中变更的文件
+3 仓库  ：存储提交之后的文件目录
+</code></pre><ul>
+<li>文件的三种状态：
+```
+已修改（modified）=&gt; 已暂存（staged）=&gt; 已提交（committed）</li>
+</ul>
+<p>已修改表示修改了某个文件，但还没有提交保存
+已暂存表示把已修改的文件放在下次提交时要保存的清单中
+已提交表示该文件已经被安全地保存在本地git仓库中了</p>
+<pre><code>
+### Git工作流程
+</code></pre><p>1 在工作目录中修改某些文件。
+2 对修改后的文件进行快照，然后保存到暂存区域。
+3 提交更新，将保存在暂存区域的文件快照永久转储到.git目录中。</p>
+<pre><code>
+### 查看提交日志
+- 命令：`git log` 查看详细的提交信息
+- 命令：`git log --oneline` 简洁的日志信息
+- 命令：`git reflog` 查看所有提交变更操作
+
+### 版本回退
+- 作用：恢复到已经提交的某一个版本中
+- 命令：`git reset --hard [版本号]`
+    + 作用：回退到指定的版本号
+
+- 其他方式：`git reset --hard head~1`
+    + ~1 表示回到上一次提交
+    + ~2 表示上上一次提交
+    + ~0 表示当前提交
+
+### 忽略文件
+- 作用：忽略一些不需要被git管理的文件
+</code></pre><p>1 在与 .git 隐藏目录同级的目录中创建 <code>.gitignore</code> 文件
+2 打开 .gitignore 文件，加入忽略文件，例如：/test.html
+3 路径是相对于当前 .gitignore文件 的路径</p>
+<p>路径写法：
+/css/a.css
+/css/*.css
+/a.html</p>
+<p>#忽略 build/ 目录下的所有文件
+build/</p>
+<pre><code>
+### 忽略文件的说明
+- 1 使用 `#` 表示注释，例如：`# 这是注释内容`
+- 2 使用 `*` 表示通配符，匹配所有文件，例如：`/css/*.css`
+
+
+## 分支
+- 查看分支：`git branch`，当前分支会标有一个`*`
+
+- 创建分支：`git branch [分支名称]`
+    + 分支中的代码，与创建那一刻主分支中的内容完全相同
+
+- 切换分支：`git checkout [分支名称]`
+
+- (简写)创建并切换分支：`git checkout -b [分支名称]`
+
+- 合并分支：`git merge [分支名称]`，即：将其他分支合并到当前分支
+
+- 删除分支：`git branch -d [分支名称]`
+
+### 合并分支冲突
+- 注意：合并分支时出现冲突只能手动处理文件，然后，再次提交
+</code></pre><p>如果在一个从分支中做了修改，然后，在主分支中也做了修改。
+此时，将这个从分支合并到主分支的时候，就会出现合并冲突的问题！</p>
+<p>在两个分支中同时修改了一个文件中的内容，此时，就会造成合并分支冲突
+，如果发生了合并冲突，需要我们手动解决！</p>
+<p>1 决定保留哪个分支中的内容
+2 重新提交</p>
+<p>操作：将 hotfix 分支，合并到cart分支中</p>
+<p>HEAD：表示当前分支
+hotfix： 表示被合并分支</p>
+<p> &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+        <span>第三次修改的内容</span></p>
+<pre><code>    &lt;cart&gt;这是在 cart 分支中提交的内容&lt;/cart&gt;
+</code></pre><p> =======
+        <span>第三次修改的内容 --- hotfix 修改bug</span></p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>hotfix
+```</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<h3 id="-">分支的说明</h3>
+<ul>
+<li>1 公司开发的项目都是由多个分支组成：主分支 + dev分支</li>
+<li>2 项目经理新建项目仓库，所有的程序员都从这个仓库中获取代码，完成开发任务</li>
+<li>3 项目经理：搭建设计仓库，创建master分支，以及dev分支（以及 debug分支等）</li>
+<li>4 所有的程序员在 dev分支 上进行开发，并且还有自己维护的分支</li>
+<li>5 程序员在分支上完成开发任务后，会提交合并请求</li>
+<li>6 项目经理安排测试，如果没有问题了，最后才会与 master 分支合并</li>
+</ul>
+<h2 id="github-">github 介绍</h2>
+<ul>
+<li><a href="https://github.com/">github官网</a></li>
+<li><a href="https://git.oschina.net/">开源中国-Git</a></li>
+</ul>
+<pre><code>在 GitHub 上免费托管的 Git 仓库，
+任何人都可以看到喔（但只有你自己才能改）。
+所以，不要把敏感信息放进去。
+</code></pre><h3 id="github-git">github与git</h3>
+<ul>
+<li>1 git 是一个版本控制工具</li>
+<li>2 github就是一个网站，这个网站提供了 git 服务器的功能</li>
+</ul>
+<h2 id="-">远程仓库操作</h2>
+<h3 id="-https-">将代码提交到远程仓库（HTTPS）</h3>
+<ul>
+<li>1 在本地创建仓库<ul>
+<li><code>git init</code></li>
+<li><code>git config</code></li>
+</ul>
+</li>
+<li>2 新建 README.md 文件，并输入任意内容</li>
+<li>3 将 README.md 提交到本地<ul>
+<li><code>git add</code></li>
+<li><code>git commit</code></li>
+</ul>
+</li>
+<li>4 在github中新建仓库，并拿到仓库地址</li>
+<li>5 使用命令 <code>git push [仓库地址] master</code> 提交内容到github的默认分支</li>
+<li>6 刷新github仓库页面，在线修改 README.md 文件，并提交</li>
+<li>7 使用命令 <code>git pull [仓库地址] master</code> 获取仓库中的最新内容</li>
+</ul>
+<h3 id="-">获取远程仓库内容</h3>
+<ul>
+<li><p>命令：<code>git pull [仓库地址] [分支名称]</code> 获取远程仓库最新内容</p>
+</li>
+<li><p>命令：<code>git clone [仓库地址] [自定义本地仓库名]</code> 将整个仓库克隆到本地</p>
+<ul>
+<li>实例：<code>git clone git://github.com/jquery/jquery.git myJQ</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="-">简化操作</h3>
+<ul>
+<li>1 <code>git remote add origin [仓库地址]</code><ul>
+<li>作用：使用origin代替 仓库地址 ，方便操作</li>
+<li>origin就相当于js的变量，[仓库地址]就相当于变量的值</li>
+</ul>
+</li>
+<li>2 <code>git push -u origin master</code><ul>
+<li>作用：<code>-u</code>参数将origin与master连在一起</li>
+</ul>
+</li>
+<li>3 使用简化命令 <code>git push origin</code> 就代替原来：&quot;git remote add origin [仓库地址]&quot;</li>
+</ul>
+<h3 id="ssh-">SSH介绍</h3>
+<ul>
+<li>非对称加密、公钥和私钥</li>
+</ul>
+<pre><code>GitHub 需要识别出你推送的提交确实是你推送的，而不是别人冒充的，
+而 Git 支持 SSH 协议，所以，GitHub 只要知道了你的公钥，
+就可以确认只有你自己才能推送，从而省去每次输入密码的操作。
+
+可以同时设置多个SSH key，比如：你可以在公司电脑提交需要一个key，
+回家后自己的电脑提交也需要一个key
+
+ssh是一种安全的传输模式
+github要求推送代码的用户是合法的，所以每次推送时候都要输入账号密码，
+用以验证你是否为合法用户，为了省去每次都要输入密码的步骤，采用shh公钥，密钥
+也就是你说的sshkey来验证你是否为合法用户
+在你的电脑生成了一个唯一的ssh公钥和私钥，公钥放到github上面，当你推送的时候，git就会
+匹配你的私钥是否跟github上面的公钥是配对的，正确就认为你是合法的，允许推送。
+
+sshkey可以理解为是你的身份标识，放在github上面表明你是这个项目的一个开发人员，但是别
+人是可以截获的，你本机的私钥别人就无法截获，sshkey就可以保证每次传输都是安全的。
+</code></pre><h3 id="-ssh-">将代码提交到远程仓库（SSH）</h3>
+<ul>
+<li>1 创建SSH Key：<code>ssh-keygen -t rsa</code></li>
+<li>2 在文件路径 <code>C:\用户\当前用户名\</code> 找到 <code>.ssh</code> 文件夹</li>
+<li>3 文件夹中有两个文件：<ul>
+<li>私钥：<code>id_rsa</code></li>
+<li>公钥：<code>id_rsa.pub</code></li>
+</ul>
+</li>
+<li>4 在 <code>github -&gt; settings -&gt; SSH and GPG keys</code>页面中，新创建SSH key</li>
+<li>5 粘贴 公钥 <code>id_rsa.pub</code> 内容到对应文本框中</li>
+<li>5 在github中新建仓库或者使用现在仓库，拿到<code>git@github.com:用户名/仓库名.git</code></li>
+<li>6 此后，再次SSH方式与github“通信”，不用输入密码确认身份了</li>
+</ul>
+<h3 id="-">最佳实践</h3>
+<ul>
+<li><p>先获取再提交，即：先<code>pull</code>再<code>push</code></p>
+</li>
+<li><p>获取跟新的其他方式：<code>fetch</code> </p>
+</li>
+<li><a href="http://ruby-china.org/topics/4768">pull和fetch的区别</a></li>
+</ul>
+<h2 id="github-">github搭建博客</h2>
+<ul>
+<li>使用github服务器的 <code>gh-pages</code> 分支</li>
+</ul>
+<pre><code>1 在本地工作目录使用git初始化 `git init`
+2 创建自己的博客项目
+3 将创建好的博客添加到暂存区 `git add [文件路径]`
+4 本地提交： `git commit -m &quot;第一个博客&quot;`
+5 创建分支：`git branch gh-pages` 分支名称固定！
+6 切换分支：`git checkout gh-pages`
+7 提交到github：`git push [github仓库地址] gh-pages`
+8 查看github中对应的仓库中，是不是提交到了 &quot;gh-pages&quot; 分支
+9 访问：&lt;github用户名&gt;.github.io/&lt;仓库名&gt;/&lt;文件名&gt;
+
+10 默认会访问 index.html
+</code></pre><ul>
+<li>动态页面：.jsp / .php / .asp / .aspx</li>
+</ul>
+<h2 id="git-gui-">Git软件（GUI 图形化界面）</h2>
+<ul>
+<li>SourceTree / TortoiseGit</li>
+<li><a href="http://backlogtool.com/git-guide/cn/">TortoiseGit使用教程</a></li>
+</ul>
+<h2 id="git-">Git -其他操作</h2>
+<h3 id="-">文件对比</h3>
+<ul>
+<li>命令：<code>git diff</code>：将工作区与暂存区或者仓库对比</li>
+<li><p>说明：如果暂存区没有文件，就会将工作区代码与上一次提交对比</p>
+<ul>
+<li>1 工作区 与 暂存区对比</li>
+<li>2 工作区 与 仓库  对比</li>
+</ul>
+</li>
+<li><p>命令：<code>git diff --cached</code>：将当前暂存区与仓库对比</p>
+</li>
+<li>命令：<code>git diff [版本号1] [版本号2] [对比的文件路径]</code><ul>
+<li>对比仓库区两次提交的差异</li>
+</ul>
+</li>
+</ul>
+<h3 id="-">撤销和删除</h3>
+<ul>
+<li><code>git reset HEAD 文件名</code> 从暂存区撤销（结果：变为 未 add 状态）</li>
+<li><code>git checkout -- test.txt</code> 撤销文件变化<ul>
+<li>一种是 readme.txt 自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；</li>
+<li>一种是 readme.txt 已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。</li>
+</ul>
+</li>
+<li><code>rm [文件名称]</code>：删除文件（物理删除）</li>
+<li><code>git rm [文件名称]</code>：从仓库中删除文件</li>
+<li><code>git rm --cached [文件名称]</code>：从暂存区删除文件</li>
+</ul>
+<h3 id="-git-">.git目录结构介绍</h3>
+<pre><code>hooks：  存储钩子的文件夹
+logs：   存储日志的文件夹
+refs：   存储指向各个分支的指针（SHA-1标识）文件
+objects：存放git对象
+config： 存放各种设置文档
+HEAD：   指向当前所在分支的指针文件路径，一般指向refs下的某文件
+</code></pre>
+          	</article>
+        </div>
+		</div>
+  </body>
+</html>
+<script type="text/javascript" src="toc/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="toc/js/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript" src="toc/js/ztree_toc.js"></script>
+<script type="text/javascript" src="toc_conf.js"></script>
+
+<SCRIPT type="text/javascript" >
+<!--
+$(document).ready(function(){
+    var css_conf = eval(markdown_panel_style);
+    $('#readme').css(css_conf)
+    
+    var conf = eval(jquery_ztree_toc_opts);
+		$('#tree').ztree_toc(conf);
+});
+//-->
+</SCRIPT>
